@@ -1,75 +1,118 @@
 import streamlit as st
 
-# Configuración de estética profesional
-st.set_page_config(
-    page_title="Información Oficial | Derechos de Petición",
-    page_icon="⚖️",
-    layout="centered"
-)
+# Configuración de página
+st.set_page_config(page_title="Información Estratégica", layout="centered")
 
-# Aplicar un estilo minimalista y limpio
+# Estilo CSS Personalizado (Fuerza colores y diseño de agencia)
 st.markdown("""
     <style>
-    /* Ocultar menús innecesarios */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    
-    /* Contenedor principal */
+    /* Fondo general */
     .stApp {
-        background-color: #FFFFFF;
+        background-color: #0F172A;
     }
     
-    /* Ajuste de fuentes y espaciado */
-    h1, h2, h3 {
+    /* Contenedor del Flyer */
+    .flyer-card {
+        background: linear-gradient(145deg, #1e293b, #0f172a);
+        padding: 50px;
+        border-radius: 20px;
+        border: 1px solid #334155;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        color: white;
         font-family: 'Inter', sans-serif;
-        color: #0F172A;
+    }
+    
+    .gold-text {
+        color: #FACC15;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        color: #FFFFFF;
+    }
+    
+    .section-box {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 20px;
+    }
+    
+    .cta-button {
+        background-color: #FACC15;
+        color: #0F172A !important;
+        text-align: center;
+        padding: 18px;
+        border-radius: 10px;
+        display: block;
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 1.2rem;
+        margin-top: 40px;
+        transition: 0.3s;
+    }
+    
+    .cta-button:hover {
+        background-color: #EAB308;
+        transform: scale(1.02);
+    }
+
+    .footer-legal {
+        font-size: 0.8rem;
+        color: #94a3b8;
+        text-align: center;
+        margin-top: 30px;
+        border-top: 1px solid #334155;
+        padding-top: 20px;
     }
     </style>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
 
-# --- ENCABEZADO IMPACTANTE ---
-st.write("---")
-st.title("📩 ¿Necesitas información oficial para fortalecer tu proyecto?")
-st.subheader("Diseñamos Derechos de Petición Estratégicos")
-st.markdown("**Convierte preguntas en información clave. Convierte información en ventaja.**")
+# Renderizado del Flyer
+st.markdown(f"""
+    <div class="flyer-card">
+        <p class="gold-text">Gestión Estratégica</p>
+        <h1 class="main-title">📩 ¿Necesitas información oficial para fortalecer tu proyecto?</h1>
+        
+        <p style="font-size: 1.2rem; color: #cbd5e1;">
+            <b>Diseñamos Derechos de Petición Inteligentes.</b><br>
+            Convierte preguntas en información clave. Convierte información en ventaja.
+        </p>
 
-# --- CUERPO DEL FLYER (Columnas para mejor distribución) ---
-col1, col2 = st.columns(2)
+        <div class="section-box">
+            <h3 style="color: #FACC15; margin-top:0;">🎯 ¿Qué hacemos?</h3>
+            <p style="color: #e2e8f0;">Redactamos peticiones estratégicas para obtener:</p>
+            <ul style="color: #94a3b8;">
+                <li>Datos no publicados y técnicos.</li>
+                <li>Respuestas formales de entidades públicas.</li>
+                <li>Insumos para propuestas y reformas.</li>
+            </ul>
+        </div>
 
-with col1:
-    st.info("### 🎯 ¿Qué hacemos?")
-    st.write("""
-    Diseñamos y redactamos derechos de petición inteligentes para obtener:
-    - **Datos** que no están publicados.
-    - **Información técnica** de entidades públicas.
-    - **Respuestas formales** y verificables.
-    - **Insumos** para fortalecer propuestas y reformas.
-    """)
+        <div class="section-box">
+            <h3 style="color: #FACC15; margin-top:0;">🚀 ¿Para qué te sirve?</h3>
+            <ul style="color: #e2e8f0; list-style-type: '✔  ';">
+                <li>Sustentar proyectos sociales.</li>
+                <li>Respaldar iniciativas legislativas.</li>
+                <li>Medir brechas y vacíos institucionales.</li>
+                <li>Tomar decisiones basadas en datos oficiales.</li>
+            </ul>
+        </div>
 
-with col2:
-    st.success("### 🚀 ¿Para qué te sirve?")
-    st.write("""
-    - Sustentar proyectos sociales.
-    - Respaldar iniciativas legislativas.
-    - Medir brechas reales.
-    - Identificar vacíos institucionales.
-    - Tomar decisiones con información oficial.
-    """)
+        <p style="text-align: center; margin-top: 30px; font-style: italic; color: #94a3b8;">
+            "La información correcta cambia el rumbo de un proyecto."
+        </p>
 
-# --- SECCIÓN DE VALOR ---
-st.divider()
-st.warning("⚖️ **Servicio técnico – administrativo**\n\nNo incluye representación jurídica.")
+        <a href="https://wa.me/TU_NUMERO" class="cta-button">📲 AGENDA TU ASESORÍA</a>
 
-st.markdown("""
-    > *“La información correcta cambia el rumbo de un proyecto.”*
-""")
-
-# --- BOTÓN DE ACCIÓN PROFESIONAL ---
-st.write(" ")
-if st.button("📲 AGENDA TU ASESORÍA AHORA", use_container_width=True, type="primary"):
-    st.balloons()
-    st.success("Redirigiendo a asesoría... (Aquí puedes poner tu link de WhatsApp)")
-
-# --- FOOTER ---
-st.caption("© 2026 | Consultoría Estratégica en Información Pública")
+        <div class="footer-legal">
+            ⚖ Servicio técnico – administrativo. No incluye representación jurídica.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
